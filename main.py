@@ -1,19 +1,8 @@
-from alphabet import alphabet
 from random import shuffle
+from symbols import *
 
-special_symbols = [
-                    '!', ''', '#', '$', '%', '&', ''', '(', ')',
-                    '*', '+', ',', '-', '.', '/', ':', ';', '<', '=',
-                    '>', '?', '@', '[', ']', '^', '_', '`', '{', '|',
-                    '}', '~', '\\'
-                    ]
 
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-
-uppercase_chars = alphabet("en", True)
-lowercase_chars = alphabet("en", False)
-
-def generate_password(password_len:int) -> str: 
+def generate_password(password_len=10) -> str | None:
     if password_len <= (len(special_symbols) + len(numbers) + len(uppercase_chars) + len(lowercase_chars)):
         password = ""
 
@@ -22,6 +11,6 @@ def generate_password(password_len:int) -> str:
 
         for i in mix[0:password_len]:
             password += i
-            
+
         return password
-    return print("Недопустимая длина пароля")
+    print("Недопустимая длина пароля")
